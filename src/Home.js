@@ -1,6 +1,6 @@
 // we start by using state right here
 import { useState } from "react";
-import BlogList from "./BlogList"
+import BlogList from "./BlogList";
 
 const Home = () => {
   // this is the use state feature
@@ -11,16 +11,15 @@ const Home = () => {
     { title: "Web dev top tips", body: "lorem ipsum...", author: "mario", id: 3 },
   ]);
 
-  let marioBlogs = blogs.filter(function(blog){
-      return blog.author === "mario"
-  })
-
-
   return (
     <div className="home">
-        {/* maps will retrun the element for each item in array */}
-<BlogList blogs = {blogs} title = "All Blogs"/>
-<BlogList blogs = {marioBlogs} title = "Mario's Blogs"/>
+      {/* maps will retrun the element for each item in array */}
+      <BlogList blogs={blogs} title="All Blogs" />
+      {/* run the filter in the curly brackets */}
+      <BlogList
+        blogs={blogs.filter((blog) => blog.author === "mario")}
+        title="Mario's Blogs"
+      />
     </div>
   );
 };
