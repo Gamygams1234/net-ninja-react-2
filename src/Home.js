@@ -11,15 +11,19 @@ const Home = () => {
     { title: "Web dev top tips", body: "lorem ipsum...", author: "mario", id: 3 },
   ]);
 
+
+  const handleDelete = (id) =>{
+      const newBlogs = blogs.filter(blog=> blog.id !== id)
+      setBlogs(newBlogs)
+
+  }
+
   return (
     <div className="home">
       {/* maps will retrun the element for each item in array */}
-      <BlogList blogs={blogs} title="All Blogs" />
+      <BlogList blogs={blogs} title="All Blogs" handleDelete = {handleDelete}/>
       {/* run the filter in the curly brackets */}
-      <BlogList
-        blogs={blogs.filter((blog) => blog.author === "mario")}
-        title="Mario's Blogs"
-      />
+
     </div>
   );
 };
