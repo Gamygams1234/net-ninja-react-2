@@ -1,5 +1,5 @@
 // we start by using state right here
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
@@ -12,12 +12,20 @@ const Home = () => {
   ]);
 
 
+//   filter the blogs and return it. 
+// we are running the function on the data itself
+
   const handleDelete = (id) =>{
       const newBlogs = blogs.filter(blog=> blog.id !== id)
       setBlogs(newBlogs)
 
   }
 
+//   use Effect runs at the begining and when the state is changed
+  useEffect(()=>{
+      console.log("use effect ran")
+      console.log(blogs)
+  })
   return (
     <div className="home">
       {/* maps will retrun the element for each item in array */}

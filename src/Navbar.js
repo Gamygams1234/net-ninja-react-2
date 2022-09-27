@@ -3,10 +3,10 @@ const Navbar = () => {
 
         <nav className="navbar">
             <h1>The Dojo Blog</h1>
-            <dov className="links">
+            <div className="links">
                 <a href="/">Home</a>
                 <a href="/create" >New Blog</a>
-            </dov>
+            </div>
         </nav>
      );
 }
