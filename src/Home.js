@@ -3,23 +3,15 @@ import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
-  // this is the use state feature
+ 
 
-  const [blogs, setBlogs] = useState([
-    { title: "My new website", body: "lorem ipsum...", author: "mario", id: 1 },
-    { title: "Welcome party!", body: "lorem ipsum...", author: "yoshi", id: 2 },
-    { title: "Web dev top tips", body: "lorem ipsum...", author: "mario", id: 3 },
-  ]);
+  const [blogs, setBlogs] = useState(null);
 const [name, setName] = useState("mario");
 
-//   filter the blogs and return it. 
-// we are running the function on the data itself
+// this is to use the json server when we fetch data
+// npx json-server --watch data/db.json --port 8080
 
-  const handleDelete = (id) =>{
-      const newBlogs = blogs.filter(blog=> blog.id !== id)
-      setBlogs(newBlogs)
 
-  }
   const handleNameChange = () =>{
     
     const newName = "John Cena"
@@ -27,12 +19,19 @@ const [name, setName] = useState("mario");
   }
 
 //   use Effect runs at the begining and when the state is changed
+// using use effect for the blogs
 
-// now use effect only runs when the name is changed  because of the dependencies
   useEffect(()=>{
-      console.log("use effect ran")
-      console.log(blogs)
-  },[name])
+     fetch('http://localhost:8080/blogs')
+     .then(res=>{
+         return res.json()
+     }).then(data=>{
+         setBlogs(data)
+         console.log(data)
+     })
+  },[])
+
+
   return (
     <div className="home">
 
@@ -40,7 +39,7 @@ const [name, setName] = useState("mario");
             Welcome {name}
         </h1>
       {/* maps will retrun the element for each item in array */}
-      <BlogList blogs={blogs} title="All Blogs" handleDelete = {handleDelete}/>
+     { blogs && <BlogList blogs={blogs} title="All Blogs" handleDelete />}
       {/* run the filter in the curly brackets */}
 
       <button onClick={handleNameChange}>Change name</button>
