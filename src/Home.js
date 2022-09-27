@@ -6,6 +6,7 @@ const Home = () => {
   const [blogs, setBlogs] = useState(null);
   const [name, setName] = useState("mario");
   const [isPending, setIsPending] = useState(true);
+  const [error, setError] = useState(null);
 
   // this is to use the json server when we fetch data
   // npx json-server --watch data/db.json --port 8080
@@ -33,6 +34,7 @@ const Home = () => {
         setIsPending(false)
       }).catch(e=> {
           console.log(e.message)
+          setError(e.message)
       })
   }, []);
 
@@ -42,6 +44,7 @@ const Home = () => {
 
 
     {/* sets a loading message for a little bit */}
+    {error && <div>{error}</div>}
       {isPending && <div>Loading... </div>}
       {blogs && <BlogList blogs={blogs} title="All Blogs" handleDelete />}
       {/* run the filter in the curly brackets */}
