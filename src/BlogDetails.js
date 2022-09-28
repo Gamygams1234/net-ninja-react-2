@@ -8,7 +8,6 @@ const BlogDetails = () => {
     <div className="blog-details">
       {isPending && <div>Loading... </div>}
       {error && <div>{error}</div>}
-      {/* make sure you do the check at the begining */}
       {blog && (
 				<article>
 					<h2>{blog.title}</h2>
