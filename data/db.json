@@ -1,42 +1,6 @@
 {
   "blogs": [
     {
-      "title": "My new website",
-      "body": "lorem ipsum...",
-      "author": "mario",
-      "id": 1
-    },
-    {
-      "title": "Welcome party!",
-      "body": "lorem ipsum...",
-      "author": "yoshi",
-      "id": 2
-    },
-    {
-      "title": "Web dev top tips",
-      "body": "lorem ipsum...",
-      "author": "mario",
-      "id": 3
-    },
-    {
-      "title": "This is my new blog",
-      "body": "new blog",
-      "author": "Mario",
-      "id": 4
-    },
-    {
-      "title": "This is my new blog",
-      "body": "new blog",
-      "author": "Mario",
-      "id": 5
-    },
-    {
-      "title": "Test",
-      "body": "test",
-      "author": "Yoshi",
-      "id": 6
-    },
-    {
       "title": "This is Gamy's new blog",
       "body": "Hey I like to skate",
       "author": "Mario",
