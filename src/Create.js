@@ -1,18 +1,26 @@
 import { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
 const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [name, setName] = useState("Yoshi");
   const [isPending, setIsPending] = useState(false);
+//   taking the use history object 
+// this can get us to redirect the user
+const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsPending(true)
+    setIsPending(true);
     const blog = { title, body, author: name };
     fetch(`http://localhost:8080/blogs/`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(blog) }).then(() => {
       console.log(`new blog added`);
-      setIsPending(false)
+      setIsPending(false);
+
+    
+    // with react it is navigate now no longer use history
+    navigate("/")
     });
   };
   return (
@@ -31,10 +39,7 @@ const Create = () => {
           <option value="Mario">Mario</option>
         </select>
 
-{!isPending?
-        <button>Add Blog</button>:
-        <button disabled>Loading..</button>
-    }
+        {!isPending ? <button>Add Blog</button> : <button disabled>Loading..</button>}
       </form>
     </div>
   );

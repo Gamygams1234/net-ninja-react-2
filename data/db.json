@@ -35,6 +35,24 @@
       "body": "test",
       "author": "Yoshi",
       "id": 6
+    },
+    {
+      "title": "This is Gamy's new blog",
+      "body": "Hey I like to skate",
+      "author": "Mario",
+      "id": 7
+    },
+    {
+      "title": "Using the navigate",
+      "body": "Does navigate Wok?",
+      "author": "Yoshi",
+      "id": 8
+    },
+    {
+      "title": "Using the navigate",
+      "body": "Does navigate Wok?",
+      "author": "Yoshi",
+      "id": 9
     }
   ]
 }
